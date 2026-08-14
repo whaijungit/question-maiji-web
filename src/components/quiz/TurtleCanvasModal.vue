@@ -1,7 +1,7 @@
 <template>
-  <!-- 浮窗运行效果面板（可拖拽 + 8 向缩放） -->
+  <!-- 浮窗运行效果面板（百分比定位：容器随窗口变化时按比例联动；可拖拽 + 8 向缩放 + 最小化） -->
   <div v-show="visible" ref="modalRef" class="absolute bg-white rounded-xl shadow-2xl border border-slate-300 flex flex-col z-30 overflow-hidden"
-    :style="{ width: position.width + 'px', height: position.height + 'px', top: position.top + 'px', left: position.left + 'px' }">
+    :style="{ width: position.width + '%', height: position.height + '%', top: position.top + '%', left: position.left + '%' }">
     <div class="resizer n" @mousedown.prevent="startResize($event, 'n')"></div>
     <div class="resizer s" @mousedown.prevent="startResize($event, 's')"></div>
     <div class="resizer e" @mousedown.prevent="startResize($event, 'e')"></div>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onBeforeUnmount } from 'vue'
 import AppIcon from '@/components/AppIcon.vue'
 import { useDragResize, type DragResizePosition } from '@/composables/useDragResize'
 
@@ -50,36 +50,43 @@ const modalRef = ref<HTMLElement | null>(null)
 const canvasRef = ref<HTMLElement | null>(null)
 
 const isMinimized = ref(false)
-const originalHeight = ref(380)
+/** 最小化前的原始高度（百分比） */
+const originalHeight = ref(50)
 
-const position = ref<DragResizePosition>({ left: 40, top: 60, width: 480, height: 380 })
+// 位置/尺寸均为相对容器的百分比（打开时会重新定位到运行按钮上方）
+const position = ref<DragResizePosition>({ left: 30, top: 30, width: 40, height: 50 })
 
-// 运行按钮位于容器右下角（bottom-6 right-6，高约 42px）；
-// 每次打开弹窗时默认吸附到按钮上方，避免初始状态遮挡编辑器
+// 每次打开弹窗时默认吸附到容器左下角
 watch(() => props.visible, (isVisible) => {
-  if (isVisible) positionAboveRunButton()
+  if (isVisible) positionBottomLeft()
 })
 
-function positionAboveRunButton() {
+function getContainerRect() {
   const container = modalRef.value?.parentElement
-  if (!container) return
+  if (!container) return null
   const rect = container.getBoundingClientRect()
+  return rect.width > 0 && rect.height > 0 ? rect : null
+}
 
-  const width = Math.max(280, Math.min(480, rect.width - 48))
-  const top = Math.max(8, rect.height - 24 - 42 - 12 - position.value.height)
-  const left = Math.max(8, rect.width - 24 - width)
+function positionBottomLeft() {
+  const rect = getContainerRect()
+  if (!rect) return
 
-  position.value.width = width
-  position.value.top = top
-  position.value.left = left
+  // 默认宽度 70%（容器百分比）、高度 200px，吸附左下角，距边缘 12px
+  const heightPx = Math.min(200, rect.height - 24)
+  const widthPct = Math.min(70, 100 - (24 / rect.width) * 100)
+
+  position.value.width = widthPct
+  position.value.height = (heightPx / rect.height) * 100
+  position.value.left = (12 / rect.width) * 100
+  position.value.top = ((rect.height - 12 - heightPx) / rect.height) * 100
 }
 
 const { startDrag, startResize } = useDragResize({
-  getElement: () => modalRef.value,
   getContainer: () => modalRef.value?.parentElement ?? null,
   position,
-  minWidth: 350,
-  minHeight: 200,
+  minWidth: 120,
+  minHeight: 120,
   isMinimized: () => isMinimized.value,
   onResizeEnd: () => {
     // 最小化状态下画布隐藏，无尺寸意义，恢复时另行通知
@@ -88,16 +95,46 @@ const { startDrag, startResize } = useDragResize({
 })
 
 function toggleMinimize() {
+  const rect = getContainerRect()
   isMinimized.value = !isMinimized.value
   if (isMinimized.value) {
     originalHeight.value = position.value.height
-    position.value.height = 40
+    if (rect) position.value.height = Math.min(position.value.height, (40 / rect.height) * 100)
   } else {
     position.value.height = originalHeight.value
     // 恢复窗口后通知尺寸变化，画布需按新尺寸重绘
     emit('resize-end')
   }
 }
+
+// 容器（编辑器区域）随窗口变化时，通知父级按新尺寸重绘画布（防抖 + 跳过首次触发）
+let containerObserver: ResizeObserver | undefined
+let resizeTimer: number | undefined
+watch(() => props.visible, (visible) => {
+  containerObserver?.disconnect()
+  containerObserver = undefined
+  if (visible) {
+    const container = modalRef.value?.parentElement
+    if (!container) return
+    let isFirst = true
+    containerObserver = new ResizeObserver(() => {
+      if (isFirst) {
+        isFirst = false
+        return
+      }
+      if (resizeTimer !== undefined) clearTimeout(resizeTimer)
+      resizeTimer = window.setTimeout(() => {
+        if (!isMinimized.value) emit('resize-end')
+      }, 300)
+    })
+    containerObserver.observe(container)
+  }
+})
+
+onBeforeUnmount(() => {
+  containerObserver?.disconnect()
+  if (resizeTimer !== undefined) clearTimeout(resizeTimer)
+})
 
 // 暴露画布节点供外部执行器挂载
 defineExpose({ canvasEl: canvasRef })

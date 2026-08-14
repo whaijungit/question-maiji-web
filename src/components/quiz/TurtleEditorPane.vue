@@ -62,7 +62,7 @@
           <div class="pt-2 border-t border-slate-200 space-y-2">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-medium text-slate-600">🤖 自动校验：编辑器代码与参考答案比对</span>
-              <button @click="autoVerify"
+              <button @click="autoVerify(false)"
                 class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-purple-500 hover:bg-purple-600 text-white transition-all flex items-center gap-1">
                 <AppIcon name="rotate-cw" :size="11" />
                 重新校验
@@ -172,7 +172,12 @@ function copyRefCode(code: string) {
     .catch(() => toast.error('复制失败，请手动复制'))
 }
 
-function autoVerify() {
+/**
+ * 校验编辑器代码与参考答案
+ * @param applyGrade 是否写入判分：仅提交触发的首次校验为 true；
+ *                   手动「重新校验」只展示比对结果，不修改提交状态
+ */
+function autoVerify(applyGrade: boolean) {
   const refCode = props.question?.referenceCode
   if (!refCode) {
     verifyError.value = '该题没有参考答案代码，无法校验'
@@ -181,12 +186,13 @@ function autoVerify() {
   verifyError.value = ''
   const result = verifyCodeAgainstReference(getValue(), refCode)
   verifyResult.value = result
-  // 校验结果直接写入判分（替换原手动判定）
-  emit('mark-self-grade', result.matched)
+  if (applyGrade) {
+    emit('mark-self-grade', result.matched)
+  }
 }
 
-// 提交解锁参考后自动执行一次校验
+// 提交解锁参考后自动执行一次校验（写入判分）
 watch(() => props.answerRecord.submitted, (submitted) => {
-  if (submitted) autoVerify()
+  if (submitted) autoVerify(true)
 })
 </script>

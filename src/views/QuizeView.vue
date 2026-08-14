@@ -64,6 +64,7 @@ const {
 // 弹窗显隐（纯 UI 编排状态）
 const showJsonModal = ref(false)
 const showWrongModal = ref(false)
+const showSearchModal = ref(false)
 
 const toast = useToast()
 

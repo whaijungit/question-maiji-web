@@ -12,7 +12,7 @@
       <div class="relative flex-shrink-0">
         <input ref="searchInputRef" v-model="keyword" type="text" placeholder="输入题目标题关键字搜索..."
           @keyup.enter="jumpToFirst"
-          class="w-full bg-slate-50 border border-slate-200 rounded-lg text-sm px-3 py-2.5 pr-9 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" />
+          class="w-full bg-slate-50 border border-slate-200 rounded-lg text-base px-3 py-2.5 pr-9 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" />
         <AppIcon name="search" :size="15" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
       </div>
 

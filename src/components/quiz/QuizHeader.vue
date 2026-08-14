@@ -14,7 +14,7 @@
       <div class="flex items-center space-x-2">
         <label class="hidden md:inline text-xs font-semibold text-slate-500">当前大纲：</label>
         <select :value="activeCategoryIndex" @change="emit('switch-category', Number(($event.target as HTMLSelectElement).value))"
-          class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-xl focus:ring-2 focus:ring-amber-500 p-2 outline-none font-medium transition-all shadow-sm max-w-[180px] sm:max-w-[240px]">
+          class="bg-slate-50 border border-slate-300 text-slate-800 text-base rounded-xl focus:ring-2 focus:ring-amber-500 p-2 outline-none font-medium transition-all shadow-sm max-w-[180px] sm:max-w-[240px]">
           <option v-for="(cat, idx) in categories" :key="idx" :value="idx">
             {{ cat.category || `分类 ${idx + 1}` }}
           </option>

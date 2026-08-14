@@ -10,7 +10,7 @@
         <!-- 错题标题搜索 -->
         <div class="relative flex-shrink-0">
           <input v-model="keyword" type="text" placeholder="搜索错题标题..."
-            class="w-full bg-slate-50 border border-slate-200 rounded-lg text-xs px-3 py-2 pr-8 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" />
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg text-base px-3 py-2 pr-8 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" />
           <AppIcon name="search" :size="14" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
         </div>
 

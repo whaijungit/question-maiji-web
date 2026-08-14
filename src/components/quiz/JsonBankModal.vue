@@ -36,13 +36,14 @@ const emit = defineEmits<{
 
 const jsonEditorHostRef = ref<HTMLElement | null>(null)
 
-// JSON 编辑（无运行/注释快捷键；弹窗关闭销毁、打开重建）
+// JSON 编辑（无运行/注释快捷键；弹窗关闭销毁、打开重建；
+// 字号不低于 16px，避免 iOS 聚焦时自动放大页面）
 useMonacoEditor({
   host: jsonEditorHostRef,
   value: toRef(props, 'jsonText'),
   onChange: (code) => emit('update:jsonText', code),
   language: 'json',
   enableActions: false,
-  fontSize: 13
+  fontSize: 16
 })
 </script>

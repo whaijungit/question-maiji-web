@@ -136,8 +136,17 @@ onBeforeUnmount(() => {
   if (resizeTimer !== undefined) clearTimeout(resizeTimer)
 })
 
-// 暴露画布节点供外部执行器挂载
-defineExpose({ canvasEl: canvasRef })
+/** 从最小化状态还原（代码运行完成后自动展开；未最小化时不做任何事） */
+function restore() {
+  if (!isMinimized.value) return
+  isMinimized.value = false
+  position.value.height = originalHeight.value
+  // 画布重新可见且尺寸恢复：通知父级按新尺寸重绘
+  emit('resize-end')
+}
+
+// 暴露画布节点与还原方法供外部使用
+defineExpose({ canvasEl: canvasRef, restore })
 </script>
 
 <style scoped>

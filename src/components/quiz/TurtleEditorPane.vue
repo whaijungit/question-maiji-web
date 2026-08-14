@@ -1,6 +1,6 @@
 <template>
-  <!-- 模式 A：海龟编辑器 LSP 分屏视图 -->
-  <div class="h-full w-full grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4 overflow-hidden">
+  <!-- 模式 A：海龟编辑器 LSP 分屏视图（移动端上下各占 50% 固定高度，内容内部滚动） -->
+  <div class="h-full w-full grid grid-cols-1 grid-rows-2 lg:grid-cols-12 lg:grid-rows-1 gap-3 md:gap-4 overflow-hidden">
 
     <!-- 左栏：Monaco Python 海龟编辑器 -->
     <div class="lg:col-span-7 h-full flex flex-col bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden relative">
@@ -144,7 +144,11 @@ function executeCode(code: string, silent = false) {
       targetCanvas: canvasModalRef.value?.canvasEl ?? null,
       onPrint: (text) => console.log('Python Print:', text),
       onSuccess: () => {
-        if (!silent) toast.success('代码运行完成')
+        if (!silent) {
+          toast.success('代码运行完成')
+          // 运行完成自动展开（若面板处于最小化状态）
+          canvasModalRef.value?.restore()
+        }
       },
       onError: (err) => {
         console.error('Python Error:', err)

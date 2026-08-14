@@ -1,0 +1,1904 @@
+[
+  {
+    "category": "第 01 知识点：环境导入与建立画布",
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "title": "在 Python 中使用海龟绘图功能，第一行代码通常应该写什么？",
+        "options": [
+          "import turtle",
+          "import math",
+          "import random",
+          "include turtle"
+        ],
+        "answer": 0,
+        "explanation": "在使用 Python 标准库的海龟绘图之前，必须先使用 import turtle 导入该模块。"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "title": "要创建一个海龟画笔对象并赋值给变量 t，正确的代码是？",
+        "options": [
+          "t = turtle.Turtle()",
+          "t = turtle.pen()",
+          "t = turtle.new()",
+          "t = turtle.start()"
+        ],
+        "answer": 0,
+        "explanation": "turtle.Turtle() 用于实例化创建一个新的海龟对象。"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "title": "想要在程序结束时保持绘图窗口不自动关闭，一般会在最后加上哪句代码？",
+        "options": [
+          "turtle.done()",
+          "turtle.stop()",
+          "turtle.close()",
+          "turtle.exit()"
+        ],
+        "answer": 0,
+        "explanation": "turtle.done() 或 turtle.mainloop() 会保持绘制窗口打开，等待用户操作。"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "title": "以下哪个选项是 Python 中正确的模块导入方式？",
+        "options": [
+          "import turtle",
+          "using turtle",
+          "require turtle",
+          "load turtle"
+        ],
+        "answer": 0,
+        "explanation": "Python 使用关键字 import 来引入标准库或第三方库。"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "title": "如果我们把代码保存为文件名，以下哪种命名方式是绝对不可以的？",
+        "options": [
+          "turtle.py",
+          "my_turtle.py",
+          "draw1.py",
+          "draw_star.py"
+        ],
+        "answer": 0,
+        "explanation": "千万不能将自己的文件名命名为 turtle.py，否则 Python 会把自己的文件当作标准库导入，导致找不到 Turtle 类报错。"
+      },
+      {
+        "id": 6,
+        "type": "iframe_editor",
+        "title": "【实操题 01】请正确导入 turtle 库，创建画笔并写出保持窗口不关闭的完整程序框架。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nturtle.done()",
+        "checkpoints": [
+          "正确导入 turtle 模块",
+          "成功创建 Turtle 画笔对象",
+          "包含 turtle.done() 维持窗口显示"
+        ],
+        "explanation": "这是海龟绘图最基础的程序骨架，导入库 -> 创建画笔 -> 保持显示。"
+      }
+    ]
+  },
+  {
+    "category": "第 02 知识点：前进与后退（移动距离）",
+    "questions": [
+      {
+        "id": 7,
+        "type": "choice",
+        "title": "让小海龟沿着当前方向向前移动 100 像素，应该使用哪个命令？",
+        "options": [
+          "t.forward(100)",
+          "t.backward(100)",
+          "t.left(100)",
+          "t.right(100)"
+        ],
+        "answer": 0,
+        "explanation": "forward(distance) 用于控制海龟朝当前方向前进指定的像素。"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "title": "以下哪个命令与 t.forward(50) 的简写形式是等价的？",
+        "options": [
+          "t.fd(50)",
+          "t.fw(50)",
+          "t.go(50)",
+          "t.fwd(50)"
+        ],
+        "answer": 0,
+        "explanation": "turtle 库中 fd() 是 forward() 的缩写。"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "title": "要控制海龟沿当前方向向后退 80 像素，可以使用哪个命令？",
+        "options": [
+          "t.backward(80)",
+          "t.forward(-80)",
+          "两项都可以",
+          "两项都不行"
+        ],
+        "answer": 2,
+        "explanation": "backward(80) 与 forward(-80) 效果完全相同，都是向后退 80 像素。"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "title": "执行代码 t.fd(100) 后接着执行 t.bk(100)，海龟最终停在什么位置？",
+        "options": [
+          "回到起点",
+          "距离起点 200 像素",
+          "距离起点 100 像素",
+          "旋转了 180 度"
+        ],
+        "answer": 0,
+        "explanation": "前进 100 像素后原路后退 100 像素，海龟回到最初出发位置。"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "title": "指令 t.backward(50) 的简写形式是？",
+        "options": [
+          "t.bk(50)",
+          "t.bw(50)",
+          "t.back(50)",
+          "A和C都可以"
+        ],
+        "answer": 3,
+        "explanation": "backward() 在 turtle 库中有 bk() 和 back() 两种常用简写。"
+      },
+      {
+        "id": 12,
+        "type": "iframe_editor",
+        "title": "【实操题 02】控制小海龟先前进 150 像素，再后退 50 像素，最后再前进 100 像素。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.forward(150)\nt.backward(50)\nt.forward(100)\nturtle.done()",
+        "checkpoints": [
+          "使用 forward 与 backward 指令",
+          "按顺序依次执行前进、后退、前进操作",
+          "海龟最终停在距离起点 200 像素处"
+        ],
+        "explanation": "通过组合 forward 和 backward 可以控制海龟前后直线往返。"
+      }
+    ]
+  },
+  {
+    "category": "第 03 知识点：左右转向（角度控制）",
+    "questions": [
+      {
+        "id": 13,
+        "type": "choice",
+        "title": "让小海龟向左（逆时针）旋转 90 度，应该使用哪个命令？",
+        "options": [
+          "t.left(90)",
+          "t.right(90)",
+          "t.forward(90)",
+          "t.turn(90)"
+        ],
+        "answer": 0,
+        "explanation": "t.left(angle) 用于控制海龟向左原地旋转指定的角度。"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "title": "指令 t.right(60) 的简写形式是？",
+        "options": [
+          "t.rt(60)",
+          "t.rg(60)",
+          "t.r(60)",
+          "t.right_turn(60)"
+        ],
+        "answer": 0,
+        "explanation": "rt() 是 right() 的简写，lt() 是 left() 的简写。"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "title": "如果海龟向左旋转 180 度，它的朝向会发生什么变化？",
+        "options": [
+          "完全颠倒朝向（掉头）",
+          "保持原样",
+          "向上朝向",
+          "向下朝向"
+        ],
+        "answer": 0,
+        "explanation": "旋转 180 度相当于面向相反的方向（掉头）。"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "title": "连续执行 t.left(90) 四次后，海龟的朝向与最开始相比？",
+        "options": [
+          "完全一致",
+          "偏转了 90 度",
+          "偏转了 180 度",
+          "偏转了 270 度"
+        ],
+        "answer": 0,
+        "explanation": "旋转 4 个 90 度等于旋转了 360 度，也就是转完一圈回到了最初的方向。"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "title": "让海龟向右转 45 度，以下哪个写法是正确的？",
+        "options": [
+          "t.rt(45)",
+          "t.right(45)",
+          "t.left(-45)",
+          "以上全都正确"
+        ],
+        "answer": 3,
+        "explanation": "rt(45)、right(45) 以及向左旋转负角度 left(-45) 效果完全相同。"
+      },
+      {
+        "id": 18,
+        "type": "iframe_editor",
+        "title": "【实操题 03】请画出一个直角拐角：向前走 120 像素，向右转 90 度，再向前走 120 像素。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.forward(120)\nt.right(90)\nt.forward(120)\nturtle.done()",
+        "checkpoints": [
+          "正确使用 forward 和 right 指令",
+          "旋转角度明确为 90 度直角",
+          "画出“L”型直角折线"
+        ],
+        "explanation": "组合前进与 90 度转向是绘制基本几何图形的第一步。"
+      }
+    ]
+  },
+  {
+    "category": "第 04 知识点：抬笔与落笔（轨迹控制）",
+    "questions": [
+      {
+        "id": 19,
+        "type": "choice",
+        "title": "想让海龟移动时不留下一条线（抬起画笔），应该使用？",
+        "options": [
+          "t.penup()",
+          "t.pendown()",
+          "t.hideturtle()",
+          "t.clear()"
+        ],
+        "answer": 0,
+        "explanation": "penup() 表示抬起画笔，此后海龟移动不会产生轨迹。"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "title": "抬笔后如果想重新开始画线，应该使用哪个指令把画笔放下？",
+        "options": [
+          "t.pendown()",
+          "t.penup()",
+          "t.showturtle()",
+          "t.begin_fill()"
+        ],
+        "answer": 0,
+        "explanation": "pendown() 表示放下画笔，落笔后海龟移动重新留下一条线条。"
+      },
+      {
+        "id": 21,
+        "type": "choice",
+        "title": "以下哪个是 t.penup() 的等价简写写法？",
+        "options": [
+          "t.pu()",
+          "t.up()",
+          "t.pu() 和 t.up() 都可以",
+          "没有任何简写"
+        ],
+        "answer": 2,
+        "explanation": "penup() 可以简写为 pu() 或 up()。"
+      },
+      {
+        "id": 22,
+        "type": "choice",
+        "title": "以下哪个是 t.pendown() 的等价简写写法？",
+        "options": [
+          "t.pd()",
+          "t.down()",
+          "t.pd() 和 t.down() 都可以",
+          "没有简写"
+        ],
+        "answer": 2,
+        "explanation": "pendown() 可以简写为 pd() 或 down()。"
+      },
+      {
+        "id": 23,
+        "type": "choice",
+        "title": "检查画笔当前是否处于落笔画线状态，可以使用哪个方法？",
+        "options": [
+          "t.isdown()",
+          "t.ispen()",
+          "t.drawing()",
+          "t.checkpen()"
+        ],
+        "answer": 0,
+        "explanation": "t.isdown() 会返回 True（落笔状态）或 False（抬笔状态）。"
+      },
+      {
+        "id": 24,
+        "type": "iframe_editor",
+        "title": "【实操题 04】绘制两条平行的线段：画一条 100 像素的线，抬笔向前移动 50 像素（不留痕迹），落笔再画一条 100 像素的线。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.forward(100)\nt.penup()\nt.forward(50)\nt.pendown()\nt.forward(100)\nturtle.done()",
+        "checkpoints": [
+          "包含 penup() 和 pendown() 指令",
+          "在无痕移动前后正确切换画笔状态",
+          "形成断开的中断虚线效果"
+        ],
+        "explanation": "使用 penup() 与 pendown() 可以在不同位置之间自由跳跃而不留下杂乱的线条。"
+      }
+    ]
+  },
+  {
+    "category": "第 05 知识点：画笔粗细与形状",
+    "questions": [
+      {
+        "id": 25,
+        "type": "choice",
+        "title": "设置画笔线条粗细为 5 像素，正确的代码是？",
+        "options": [
+          "t.pensize(5)",
+          "t.pencolor(5)",
+          "t.width_pen(5)",
+          "t.size(5)"
+        ],
+        "answer": 0,
+        "explanation": "pensize(width) 或 width(width) 用于设置线条粗细。"
+      },
+      {
+        "id": 26,
+        "type": "choice",
+        "title": "除了 pensize() 之外，设置画笔宽度的另一个别名函数是？",
+        "options": [
+          "t.width()",
+          "t.thick()",
+          "t.bold()",
+          "t.line()"
+        ],
+        "answer": 0,
+        "explanation": "t.width() 与 t.pensize() 功能完全一致。"
+      },
+      {
+        "id": 27,
+        "type": "choice",
+        "title": "想要把箭头变成真实的小海龟形状，应该使用哪个指令？",
+        "options": [
+          "t.shape('turtle')",
+          "t.shape('arrow')",
+          "t.shape('circle')",
+          "t.shape('square')"
+        ],
+        "answer": 0,
+        "explanation": "t.shape('turtle') 可以将画笔形态改为小海龟外观。"
+      },
+      {
+        "id": 28,
+        "type": "choice",
+        "title": "以下哪个不是 turtle 库内置支持的标准造型名称？",
+        "options": [
+          "'turtle'",
+          "'square'",
+          "'circle'",
+          "'cat'"
+        ],
+        "answer": 3,
+        "explanation": "turtle 内置常见形状包含 turtle, arrow, circle, square, triangle, classic，没有 cat。"
+      },
+      {
+        "id": 29,
+        "type": "choice",
+        "title": "如果将 pensize 设置为 0，实际会发生什么？",
+        "options": [
+          "画笔不画线",
+          "依然画出最小的 1 像素线条",
+          "报错停止",
+          "画布变黑"
+        ],
+        "answer": 1,
+        "explanation": "在海龟绘图中，粗细小于等于 1 时默认按照最小的 1 像素绘制。"
+      },
+      {
+        "id": 30,
+        "type": "iframe_editor",
+        "title": "【实操题 05】将海龟造型设置为小海龟('turtle')，将画笔粗细设置为 8 像素，绘制一条长 150 像素的粗线。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.shape('turtle')\nt.pensize(8)\nt.forward(150)\nturtle.done()",
+        "checkpoints": [
+          "正确调用 shape('turtle')",
+          "正确调用 pensize(8) 设置粗细",
+          "成功绘制粗线"
+        ],
+        "explanation": "设定造型和画笔粗细可以让绘制的图形更清晰具有对比度。"
+      }
+    ]
+  },
+  {
+    "category": "第 06 知识点：画笔颜色与背景色",
+    "questions": [
+      {
+        "id": 31,
+        "type": "choice",
+        "title": "设置画笔绘制线条的颜色为红色，正确的命令是？",
+        "options": [
+          "t.pencolor('red')",
+          "t.fillcolor('red')",
+          "t.bgcolor('red')",
+          "t.color_pen('red')"
+        ],
+        "answer": 0,
+        "explanation": "pencolor('color') 专门用于指定线条画笔的颜色。"
+      },
+      {
+        "id": 32,
+        "type": "choice",
+        "title": "修改整个绘图窗口背景颜色的方法是？",
+        "options": [
+          "turtle.bgcolor('blue')",
+          "t.pencolor('blue')",
+          "t.fillcolor('blue')",
+          "turtle.back('blue')"
+        ],
+        "answer": 0,
+        "explanation": "turtle.bgcolor('color') 用于改变画布的背景颜色。"
+      },
+      {
+        "id": 33,
+        "type": "choice",
+        "title": "指令 t.color('red', 'yellow') 代表什么含义？",
+        "options": [
+          "画笔红色，填充黄色",
+          "画笔黄色，填充红色",
+          "背景红色，画笔黄色",
+          "背景黄色，画笔红色"
+        ],
+        "answer": 0,
+        "explanation": "color(color1, color2) 接受两个参数时，第一个代表画笔线条色，第二个代表内部填充色。"
+      },
+      {
+        "id": 34,
+        "type": "choice",
+        "title": "以下哪个不是颜色的常见英文单词字符串写法？",
+        "options": [
+          "'green'",
+          "'blue'",
+          "'orange'",
+          "'hongse'"
+        ],
+        "answer": 3,
+        "explanation": "turtle 颜色参数需要传入标准英文颜色词，如 'red'、'green' 等，不支持拼音。"
+      },
+      {
+        "id": 35,
+        "type": "choice",
+        "title": "如果要使用 16 进制颜色编码（如 '#FF0000' 代表红色），是否可以直接传给 pencolor？",
+        "options": [
+          "可以",
+          "不可以",
+          "需要先转换",
+          "只能用在背景色"
+        ],
+        "answer": 0,
+        "explanation": "pencolor() 完全支持如 '#FF0000'、'#00FF00' 等 16 进制颜色字符串。"
+      },
+      {
+        "id": 36,
+        "type": "iframe_editor",
+        "title": "【实操题 06】将画布背景设置为黑色('black')，画笔颜色设置为绿色('green')，向前画一条长 100 像素的线。",
+        "referenceCode": "import turtle\n\nturtle.bgcolor('black')\nt = turtle.Turtle()\nt.pencolor('green')\nt.forward(100)\nturtle.done()",
+        "checkpoints": [
+          "成功调用 turtle.bgcolor('black')",
+          "成功调用 pencolor('green')",
+          "绘制出黑色背景上的亮绿线条"
+        ],
+        "explanation": "合理的背景与画笔色彩搭配能让图形视觉效果更加出彩。"
+      }
+    ]
+  },
+  {
+    "category": "第 07 知识点：封闭图形与颜色填充",
+    "questions": [
+      {
+        "id": 37,
+        "type": "choice",
+        "title": "在给封闭图形填充颜色之前，必须先调用的准备命令是？",
+        "options": [
+          "t.begin_fill()",
+          "t.end_fill()",
+          "t.fillcolor()",
+          "t.start_fill()"
+        ],
+        "answer": 0,
+        "explanation": "填充颜色必须按照 begin_fill() -> 画图形 -> end_fill() 的顺序。"
+      },
+      {
+        "id": 38,
+        "type": "choice",
+        "title": "画完封闭图形后，真正把颜色填入图形内部的命令是？",
+        "options": [
+          "t.end_fill()",
+          "t.begin_fill()",
+          "t.stop_fill()",
+          "t.fill()"
+        ],
+        "answer": 0,
+        "explanation": "调用 end_fill() 后，海龟会自动填充 begin_fill() 之后画出的闭合区域。"
+      },
+      {
+        "id": 39,
+        "type": "choice",
+        "title": "专门用于单独设置内部填充颜色的命令是？",
+        "options": [
+          "t.fillcolor('yellow')",
+          "t.pencolor('yellow')",
+          "t.bgcolor('yellow')",
+          "t.color('yellow')"
+        ],
+        "answer": 0,
+        "explanation": "fillcolor() 只改变内部填充色彩，不影响线条颜色。"
+      },
+      {
+        "id": 40,
+        "type": "choice",
+        "title": "如果只写了 begin_fill()，但是忘记写 end_fill()，会出现什么情况？",
+        "options": [
+          "不会显示填充颜色",
+          "程序直接报错中断",
+          "整个屏幕全部变黑",
+          "自动补充填充"
+        ],
+        "answer": 0,
+        "explanation": "没有触发 end_fill() 时，海龟不会执行最后的颜色涂色绘制。"
+      },
+      {
+        "id": 41,
+        "type": "choice",
+        "title": "能否在抬笔状态下画封闭区域并成功填充？",
+        "options": [
+          "可以",
+          "不可以",
+          "会报错",
+          "必须先设粗细"
+        ],
+        "answer": 0,
+        "explanation": "即使抬笔不留线条轨迹，begin_fill() 到 end_fill() 记录的路径围成的多边形依然可以被正确填充。"
+      },
+      {
+        "id": 42,
+        "type": "iframe_editor",
+        "title": "【实操题 07】设置填充色为蓝色('blue')，画一个边长为 80 的正方形并填充颜色。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.fillcolor('blue')\nt.begin_fill()\nfor _ in range(4):\n    t.forward(80)\n    t.right(90)\nt.end_fill()\nturtle.done()",
+        "checkpoints": [
+          "正确设置 fillcolor('blue')",
+          "成对使用 begin_fill() 与 end_fill()",
+          "正方形被成功填充为蓝色"
+        ],
+        "explanation": "通过 begin_fill() 与 end_fill() 配对即可包裹封闭多边形进行色彩填充。"
+      }
+    ]
+  },
+  {
+    "category": "第 08 知识点：基础循环绘制（正方形）",
+    "questions": [
+      {
+        "id": 43,
+        "type": "choice",
+        "title": "绘制正方形时，内角是 90 度，海龟每次旋转的外角应该是多少度？",
+        "options": [
+          "90 度",
+          "60 度",
+          "180 度",
+          "45 度"
+        ],
+        "answer": 0,
+        "explanation": "正方形的外角等于 180° - 90° = 90°，所以每次旋转 90 度。"
+      },
+      {
+        "id": 44,
+        "type": "choice",
+        "title": "使用 Python 的 for 循环结构重复执行 4 次，应该怎么写？",
+        "options": [
+          "for i in range(4):",
+          "repeat 4 times:",
+          "loop(4):",
+          "while 4:"
+        ],
+        "answer": 0,
+        "explanation": "Python 使用 for i in range(4): 语法实现 4 次循环。"
+      },
+      {
+        "id": 45,
+        "type": "choice",
+        "title": "在 range(4) 的循环体中，绘制正方形的最小重复组合指令是？",
+        "options": [
+          "前进 + 转向",
+          "抬笔 + 落笔",
+          "画圆 + 点",
+          "变色 + 变粗"
+        ],
+        "answer": 0,
+        "explanation": "绘制正方形只需重复 4 次 [前进边长 + 转弯 90 度] 的操作组合。"
+      },
+      {
+        "id": 46,
+        "type": "choice",
+        "title": "如果不使用 for 循环画正方形，需要写几条 forward 和 right 指令？",
+        "options": [
+          "各 4 条",
+          "各 3 条",
+          "各 5 条",
+          "各 2 条"
+        ],
+        "answer": 0,
+        "explanation": "正方形有 4 条边和 4 个角，不使用循环需要依次调用 4 次前进和 4 次转向。"
+      },
+      {
+        "id": 47,
+        "type": "choice",
+        "title": "以下哪种旋转组合**不能**绘制出封闭的正方形？",
+        "options": [
+          "4 次右转 90 度",
+          "4 次左转 90 度",
+          "2 次左转 90 度 + 2 次右转 90 度",
+          "左转和右转混用都不行"
+        ],
+        "answer": 2,
+        "explanation": "左转和右转交替会画出折线或 S 型，必须向同一个方向连续转 4 个 90 度才能封闭。"
+      },
+      {
+        "id": 48,
+        "type": "iframe_editor",
+        "title": "【实操题 08】利用 for i in range(4): 循环绘制一个边长为 100 像素的正方形。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nfor i in range(4):\n    t.forward(100)\n    t.left(90)\nturtle.done()",
+        "checkpoints": [
+          "正确使用 for 循环结构",
+          "循环体包含前进 100 与转向 90 度",
+          "形成封闭的正方形图形"
+        ],
+        "explanation": "利用 for 循环大幅简化重复性图形的编写。"
+      }
+    ]
+  },
+  {
+    "category": "第 09 知识点：正多边形通用公式与绘制",
+    "questions": [
+      {
+        "id": 49,
+        "type": "choice",
+        "title": "绘制正 n 边形时，海龟每次转弯的旋转外角计算公式是？",
+        "options": [
+          "360 / n",
+          "180 / n",
+          "(n - 2) * 180",
+          "360 * n"
+        ],
+        "answer": 0,
+        "explanation": "正多边形一周总外角为 360 度，每个顶点的旋转角度为 360 / n。"
+      },
+      {
+        "id": 50,
+        "type": "choice",
+        "title": "绘制正三角形（3 条边）时，每次海龟需要旋转的角度是多少度？",
+        "options": [
+          "120 度",
+          "60 度",
+          "90 度",
+          "180 度"
+        ],
+        "answer": 0,
+        "explanation": "360 / 3 = 120 度。"
+      },
+      {
+        "id": 51,
+        "type": "choice",
+        "title": "绘制正六边形（6 条边）时，每次海龟需要旋转的角度是多少度？",
+        "options": [
+          "60 度",
+          "72 度",
+          "90 度",
+          "45 度"
+        ],
+        "answer": 0,
+        "explanation": "360 / 6 = 60 度。"
+      },
+      {
+        "id": 52,
+        "type": "choice",
+        "title": "绘制正五边形（5 条边）时，每次海龟需要旋转的角度是多少度？",
+        "options": [
+          "72 度",
+          "60 度",
+          "108 度",
+          "90 度"
+        ],
+        "answer": 0,
+        "explanation": "360 / 5 = 72 度。"
+      },
+      {
+        "id": 53,
+        "type": "choice",
+        "title": "如果边数 n 变得非常大（比如 n = 360），绘制出来的多边形看起来像什么？",
+        "options": [
+          "圆形",
+          "直线",
+          "正方形",
+          "五角星"
+        ],
+        "answer": 0,
+        "explanation": "正多边形的边数越多，形状就越接近完美的圆形。"
+      },
+      {
+        "id": 54,
+        "type": "iframe_editor",
+        "title": "【实操题 09】编写程序，利用公式 360 / 8 绘制一个边长为 50 的正八边形。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nangle = 360 / 8\nfor _ in range(8):\n    t.forward(50)\n    t.left(angle)\nturtle.done()",
+        "checkpoints": [
+          "循环执行 8 次",
+          "每次旋转角度为 360 / 8 = 45 度",
+          "画出闭合的标准正八边形"
+        ],
+        "explanation": "掌握外角计算公式可以绘制任意边数的正多边形。"
+      }
+    ]
+  },
+  {
+    "category": "第 10 知识点：画圆指令 circle() 的基本用法",
+    "questions": [
+      {
+        "id": 55,
+        "type": "choice",
+        "title": "在海龟绘图中画一个半径为 50 像素的圆，正确命令是？",
+        "options": [
+          "t.circle(50)",
+          "t.dot(50)",
+          "t.arc(50)",
+          "t.round(50)"
+        ],
+        "answer": 0,
+        "explanation": "circle(radius) 命令用于绘制指定半径的圆。"
+      },
+      {
+        "id": 56,
+        "type": "choice",
+        "title": "执行 t.circle(50) 时，参数 50 代表的是圆的什么属性？",
+        "options": [
+          "半径",
+          "直径",
+          "周长",
+          "面积"
+        ],
+        "answer": 0,
+        "explanation": "circle 函数的第一个参数默认为圆的半径（radius）。"
+      },
+      {
+        "id": 57,
+        "type": "choice",
+        "title": "如果设置半径为负数，例如 t.circle(-50)，海龟会怎么画？",
+        "options": [
+          "圆心在海龟右侧绘制",
+          "报错停止",
+          "画不出来",
+          "清空屏幕"
+        ],
+        "answer": 0,
+        "explanation": "正半径圆心在海龟左侧，负半径圆心在海龟右侧。"
+      },
+      {
+        "id": 58,
+        "type": "choice",
+        "title": "画圆指令 t.circle(50) 执行完毕后，海龟最终停在什么位置？",
+        "options": [
+          "回到画圆的起点",
+          "停在圆心位置",
+          "停在圆的最顶端",
+          "随机位置"
+        ],
+        "answer": 0,
+        "explanation": "画完整圆后，海龟会自动沿着圆周回到出发起点并保持原朝向。"
+      },
+      {
+        "id": 59,
+        "type": "choice",
+        "title": "要想画一个半径为 100 的圆，它的直径是多少像素？",
+        "options": [
+          "200 像素",
+          "100 像素",
+          "50 像素",
+          "314 像素"
+        ],
+        "answer": 0,
+        "explanation": "直径 = 半径 * 2 = 200 像素。"
+      },
+      {
+        "id": 60,
+        "type": "iframe_editor",
+        "title": "【实操题 10】请在画布上绘制一个半径为 70 像素的圆形。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.circle(70)\nturtle.done()",
+        "checkpoints": [
+          "正确调用 circle(70)",
+          "绘制出完整圆线条"
+        ],
+        "explanation": "circle(r) 是海龟绘图中最便捷的圆弧图形绘制指令。"
+      }
+    ]
+  },
+  {
+    "category": "第 11 知识点：弧度与多边形逼近（circle 进阶参数）",
+    "questions": [
+      {
+        "id": 61,
+        "type": "choice",
+        "title": "要想只画半个圆（180 度的圆弧），应该怎么设置 circle 的参数？",
+        "options": [
+          "t.circle(50, 180)",
+          "t.circle(50, 0.5)",
+          "t.half_circle(50)",
+          "t.circle(180, 50)"
+        ],
+        "answer": 0,
+        "explanation": "circle(radius, extent) 第二个参数 extent 代表要绘制的角度弧度。"
+      },
+      {
+        "id": 62,
+        "type": "choice",
+        "title": "命令 t.circle(50, steps=3) 会画出什么图形？",
+        "options": [
+          "正三角形",
+          "正方形",
+          "圆形",
+          "五角星"
+        ],
+        "answer": 0,
+        "explanation": "steps 参数代表用几条等长线段来内接拟合圆，steps=3 即为正三角形。"
+      },
+      {
+        "id": 63,
+        "type": "choice",
+        "title": "命令 t.circle(60, steps=4) 会画出什么图形？",
+        "options": [
+          "正方形/菱形",
+          "正六边形",
+          "半圆",
+          "八角形"
+        ],
+        "answer": 0,
+        "explanation": "steps=4 会绘制 4 边的正多边形（正方形/菱形）。"
+      },
+      {
+        "id": 64,
+        "type": "choice",
+        "title": "如果想要画 90 度的扇形圆弧（四分之一圆），extent 参数应该填多少？",
+        "options": [
+          "90",
+          "180",
+          "270",
+          "360"
+        ],
+        "answer": 0,
+        "explanation": "90 度即四分之一圆周的圆弧。"
+      },
+      {
+        "id": 65,
+        "type": "choice",
+        "title": "执行 t.circle(80, 360) 与执行 t.circle(80) 效果是否相同？",
+        "options": [
+          "完全相同",
+          "完全不同",
+          "前者画半圆",
+          "后者画半圆"
+        ],
+        "answer": 0,
+        "explanation": "360 度代表画一个整圆，省略 extent 参数时默认就是 360 度。"
+      },
+      {
+        "id": 66,
+        "type": "iframe_editor",
+        "title": "【实操题 11】使用 t.circle(80, steps=6) 快速绘制一个正六边形。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.circle(80, steps=6)\nturtle.done()",
+        "checkpoints": [
+          "正确使用 circle 的 steps 参数",
+          "成功画出 6 边的正多边形"
+        ],
+        "explanation": "利用 circle(r, steps=n) 可以无需写 for 循环直接绘制出正多边形。"
+      }
+    ]
+  },
+  {
+    "category": "第 12 知识点：实心点 dot() 与印章 stamp()",
+    "questions": [
+      {
+        "id": 67,
+        "type": "choice",
+        "title": "在海龟当前位置直接画一个指定直径的实心圆点，最方便的指令是？",
+        "options": [
+          "t.dot(20)",
+          "t.circle(20)",
+          "t.point(20)",
+          "t.stamp(20)"
+        ],
+        "answer": 0,
+        "explanation": "dot(size) 用于在当前原点画一个直径为 size 的实心圆点。"
+      },
+      {
+        "id": 68,
+        "type": "choice",
+        "title": "在当前位置印下一个海龟当前外观图标印章，应该调用哪个指令？",
+        "options": [
+          "t.stamp()",
+          "t.dot()",
+          "t.copy()",
+          "t.print()"
+        ],
+        "answer": 0,
+        "explanation": "stamp() 会把海龟当前的造型复制盖章印在画布上。"
+      },
+      {
+        "id": 69,
+        "type": "choice",
+        "title": "使用 stamp() 盖章后返回的是什么？",
+        "options": [
+          "印章的唯一 ID 编号",
+          "无返回值",
+          "海龟坐标",
+          "画笔颜色"
+        ],
+        "answer": 0,
+        "explanation": "stamp() 会返回一个整数 stamp_id，后续可通过 clearstamp(stamp_id) 清除指定印章。"
+      },
+      {
+        "id": 70,
+        "type": "choice",
+        "title": "清除上一个印下的印章，可以使用哪个指令？",
+        "options": [
+          "t.clearstamp(stamp_id)",
+          "t.undo()",
+          "t.reset()",
+          "t.clear()"
+        ],
+        "answer": 0,
+        "explanation": "clearstamp(id) 可以根据印章编号精确清除某个印章。"
+      },
+      {
+        "id": 71,
+        "type": "choice",
+        "title": "命令 t.dot(30, 'red') 中，30 代表什么？",
+        "options": [
+          "实心圆点的直径大小",
+          "实心圆点的半径大小",
+          "旋转角度",
+          "透明度"
+        ],
+        "answer": 0,
+        "explanation": "dot 函数的第一个参数代表实心圆点的直径。"
+      },
+      {
+        "id": 72,
+        "type": "iframe_editor",
+        "title": "【实操题 12】在屏幕中央画一个直径为 50 像素的红色实心点，再向前移动 100 像素盖下一个海龟印章。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.shape('turtle')\nt.dot(50, 'red')\nt.penup()\nt.forward(100)\nt.stamp()\nturtle.done()",
+        "checkpoints": [
+          "正确调用 dot(50, 'red')",
+          "成功调用 stamp() 盖章",
+          "印章与实心点位置正确隔开"
+        ],
+        "explanation": "dot 用于画点，stamp 用于将海龟自身造型像印章一样复制印在界面上。"
+      }
+    ]
+  },
+  {
+    "category": "第 13 知识点：海龟隐形与显形",
+    "questions": [
+      {
+        "id": 73,
+        "type": "choice",
+        "title": "隐藏海龟指针图标，使画面看起来更整洁的指令是？",
+        "options": [
+          "t.hideturtle()",
+          "t.showturtle()",
+          "t.penup()",
+          "t.clear()"
+        ],
+        "answer": 0,
+        "explanation": "hideturtle() 会隐藏海龟图标本身，但画笔依然可以继续正常绘制线条。"
+      },
+      {
+        "id": 74,
+        "type": "choice",
+        "title": "重新将隐藏的海龟指针显示出来的指令是？",
+        "options": [
+          "t.showturtle()",
+          "t.hideturtle()",
+          "t.pendown()",
+          "t.display()"
+        ],
+        "answer": 0,
+        "explanation": "showturtle() 用于恢复显示海龟图标。"
+      },
+      {
+        "id": 75,
+        "type": "choice",
+        "title": "指令 t.hideturtle() 的简写形式是？",
+        "options": [
+          "t.ht()",
+          "t.st()",
+          "t.hd()",
+          "t.hide()"
+        ],
+        "answer": 0,
+        "explanation": "hideturtle() 简写为 ht()，showturtle() 简写为 st()。"
+      },
+      {
+        "id": 76,
+        "type": "choice",
+        "title": "海龟处于隐藏状态（hideturtle）时，能否继续画图？",
+        "options": [
+          "可以正常画图",
+          "不能画图",
+          "只能画点",
+          "程序报错"
+        ],
+        "answer": 0,
+        "explanation": "隐藏海龟只影响海龟图标是否可见，不影响任何画笔绘制功能。"
+      },
+      {
+        "id": 77,
+        "type": "choice",
+        "title": "检查海龟当前是否可见的查询方法是？",
+        "options": [
+          "t.isvisible()",
+          "t.ishide()",
+          "t.show()",
+          "t.visible()"
+        ],
+        "answer": 0,
+        "explanation": "isvisible() 会返回 True（可见）或 False（隐藏）。"
+      },
+      {
+        "id": 78,
+        "type": "iframe_editor",
+        "title": "【实操题 13】隐藏海龟图标，画一个边长为 100 像素的正方形，画完后重新显示海龟。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.hideturtle()\nfor _ in range(4):\n    t.forward(100)\n    t.right(90)\nt.showturtle()\nturtle.done()",
+        "checkpoints": [
+          "使用 hideturtle() 隐藏",
+          "正确绘制正方形",
+          "最后调用 showturtle() 恢复显示"
+        ],
+        "explanation": "在复杂作图中隐藏海龟可以加速绘制并提升画面观赏性。"
+      }
+    ]
+  },
+  {
+    "category": "第 14 知识点：坐标系与直接定位 goto()",
+    "questions": [
+      {
+        "id": 79,
+        "type": "choice",
+        "title": "海龟初始默认所在的画布中心点笛卡尔坐标是？",
+        "options": [
+          "(0, 0)",
+          "(100, 100)",
+          "(0, 100)",
+          "(-100, 0)"
+        ],
+        "answer": 0,
+        "explanation": "海龟绘图窗口中央的坐标原点为 (0, 0)。"
+      },
+      {
+        "id": 80,
+        "type": "choice",
+        "title": "直接控制海龟移动到坐标 (100, 200) 位置的命令是？",
+        "options": [
+          "t.goto(100, 200)",
+          "t.move(100, 200)",
+          "t.setpos_x(100, 200)",
+          "t.point(100, 200)"
+        ],
+        "answer": 0,
+        "explanation": "goto(x, y) 用于把海龟移动到指定绝对坐标位置。"
+      },
+      {
+        "id": 81,
+        "type": "choice",
+        "title": "使海龟直接回到坐标原点 (0, 0) 并恢复初始朝向的快捷命令是？",
+        "options": [
+          "t.home()",
+          "t.reset()",
+          "t.clear()",
+          "t.start()"
+        ],
+        "answer": 0,
+        "explanation": "home() 用于让海龟归位回原点 (0,0) 并朝向东（右）。"
+      },
+      {
+        "id": 82,
+        "type": "choice",
+        "title": "指令 t.setpos(50, 50) 与 t.goto(50, 50) 的关系是？",
+        "options": [
+          "功能完全相同",
+          "完全不同",
+          "前者只改变 X 轴",
+          "后者只改变 Y 轴"
+        ],
+        "answer": 0,
+        "explanation": "goto()、setpos() 和 setposition() 互为等价别名。"
+      },
+      {
+        "id": 83,
+        "type": "choice",
+        "title": "单独设置海龟的横坐标 X 为 150，可以使用哪个命令？",
+        "options": [
+          "t.setx(150)",
+          "t.sety(150)",
+          "t.gotox(150)",
+          "t.x(150)"
+        ],
+        "answer": 0,
+        "explanation": "setx(x) 用于单独修改 X 坐标，Y 坐标保持不变。"
+      },
+      {
+        "id": 84,
+        "type": "iframe_editor",
+        "title": "【实操题 14】抬笔状态下让海龟移动到 (-100, 100)，落笔画一条长 200 像素的线，最后调用 t.home() 回到原点。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.penup()\nt.goto(-100, 100)\nt.pendown()\nt.forward(200)\nt.penup()\nt.home()\nturtle.done()",
+        "checkpoints": [
+          "正确配合 penup 和 goto(-100, 100)",
+          "成功落笔画线",
+          "调用 home() 返回原点"
+        ],
+        "explanation": "绝对坐标定位配合 home() 返航是版面布局的常用技巧。"
+      }
+    ]
+  },
+  {
+    "category": "第 15 知识点：绝对朝向与角度定位 setheading()",
+    "questions": [
+      {
+        "id": 85,
+        "type": "choice",
+        "title": "海龟默认初始角度 0 度朝向画布的哪个方向？",
+        "options": [
+          "正东（右）",
+          "正北（上）",
+          "正西（左）",
+          "正南（下）"
+        ],
+        "answer": 0,
+        "explanation": "标准模式下，0 度朝右（东），90 度朝上（北），180 度朝左（西），270 度朝下（南）。"
+      },
+      {
+        "id": 86,
+        "type": "choice",
+        "title": "要让海龟强行直接面向正上方（90 度方向），应该使用？",
+        "options": [
+          "t.setheading(90)",
+          "t.left(90)",
+          "t.heading(90)",
+          "t.turn(90)"
+        ],
+        "answer": 0,
+        "explanation": "setheading(angle) 或 seth(angle) 用于强行改变绝对朝向。"
+      },
+      {
+        "id": 87,
+        "type": "choice",
+        "title": "指令 t.seth(180) 会使海龟朝向哪个方向？",
+        "options": [
+          "正西（左）",
+          "正东（右）",
+          "正北（上）",
+          "正南（下）"
+        ],
+        "answer": 0,
+        "explanation": "180 度对应平面直角坐标系的左侧（西方）。"
+      },
+      {
+        "id": 88,
+        "type": "choice",
+        "title": "查询海龟当前绝对角度方向的方法是？",
+        "options": [
+          "t.heading()",
+          "t.getangle()",
+          "t.direction()",
+          "t.angle()"
+        ],
+        "answer": 0,
+        "explanation": "t.heading() 会返回海龟当前的绝对朝向数值。"
+      },
+      {
+        "id": 89,
+        "type": "choice",
+        "title": "执行 t.setheading(270) 后向前移动 100，海龟会往哪里走？",
+        "options": [
+          "向下走",
+          "向上走",
+          "向左走",
+          "向右走"
+        ],
+        "answer": 0,
+        "explanation": "270 度即为正南方向（向下）。"
+      },
+      {
+        "id": 90,
+        "type": "iframe_editor",
+        "title": "【实操题 15】分别设置海龟方向为 0°、90°、180°、270°，每个方向各向前走 50 像素，绘制一个十字星线条。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nfor angle in [0, 90, 180, 270]:\n    t.setheading(angle)\n    t.forward(50)\n    t.home()\nturtle.done()",
+        "checkpoints": [
+          "正确使用 setheading/seth 命令",
+          "向 4 个绝对方向各画出线段",
+          "形成十字交叉对称图案"
+        ],
+        "explanation": "setheading() 不依赖海龟当前状态，能精确调整到目标角度。"
+      }
+    ]
+  },
+  {
+    "category": "第 16 知识点：清空画布与重置状态",
+    "questions": [
+      {
+        "id": 91,
+        "type": "choice",
+        "title": "只擦除画布上的线条图案，但保留海龟当前所在位置与朝向的命令是？",
+        "options": [
+          "t.clear()",
+          "t.reset()",
+          "t.undo()",
+          "t.clean()"
+        ],
+        "answer": 0,
+        "explanation": "t.clear() 擦除画布轨迹，不动海龟位置状态。"
+      },
+      {
+        "id": 92,
+        "type": "choice",
+        "title": "既擦除所有图案，又将海龟重置回中央原点初始状态的命令是？",
+        "options": [
+          "t.reset()",
+          "t.clear()",
+          "t.home()",
+          "t.undo()"
+        ],
+        "answer": 0,
+        "explanation": "t.reset() 完全重置画布与海龟所有属性。"
+      },
+      {
+        "id": 93,
+        "type": "choice",
+        "title": "撤销海龟上一步执行的作图动作，应该调用哪个指令？",
+        "options": [
+          "t.undo()",
+          "t.clear()",
+          "t.back()",
+          "t.delete()"
+        ],
+        "answer": 0,
+        "explanation": "undo() 用于撤销上一次的绘图命令。"
+      },
+      {
+        "id": 94,
+        "type": "choice",
+        "title": "在一个循环中执行 4 次 t.undo()，会产生什么效果？",
+        "options": [
+          "连续撤销最后 4 步操作",
+          "报错",
+          "清空全屏",
+          "重置海龟"
+        ],
+        "answer": 0,
+        "explanation": "多次调用 undo() 可以按步骤一步步倒退撤销操作。"
+      },
+      {
+        "id": 95,
+        "type": "choice",
+        "title": "turtle.clearscreen() 函数的作用是？",
+        "options": [
+          "清空整个屏幕窗口及所有海龟",
+          "只清除背景色",
+          "隐藏窗口",
+          "结束程序"
+        ],
+        "answer": 0,
+        "explanation": "clearscreen() 清除整个屏幕的所有绘制及所有海龟对象。"
+      },
+      {
+        "id": 96,
+        "type": "iframe_editor",
+        "title": "【实操题 16】画一个正方形后，调用 clear() 擦除，向前移动 100 像素后再画一个正方形。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nfor _ in range(4):\n    t.forward(50)\n    t.right(90)\nt.clear()\nt.forward(100)\nfor _ in range(4):\n    t.forward(50)\n    t.right(90)\nturtle.done()",
+        "checkpoints": [
+          "正确调用 clear() 指令",
+          "旧图形被清空，只保留在新位置绘制的正方形"
+        ],
+        "explanation": "clear() 指令可以实现画面局部或阶段性刷新重绘。"
+      }
+    ]
+  },
+  {
+    "category": "第 17 知识点：绘图速度与动画控制",
+    "questions": [
+      {
+        "id": 97,
+        "type": "choice",
+        "title": "设置海龟绘图速度为最快（瞬间完成无动画），应该传入哪个参数？",
+        "options": [
+          "t.speed(0)",
+          "t.speed(10)",
+          "t.speed(1)",
+          "t.speed(100)"
+        ],
+        "answer": 0,
+        "explanation": "speed(0) 代表最快（无延迟动画）。"
+      },
+      {
+        "id": 98,
+        "type": "choice",
+        "title": "turtle.speed(1) 代表的是什么速度？",
+        "options": [
+          "最慢速度",
+          "最快速度",
+          "正常速度",
+          "中等速度"
+        ],
+        "answer": 0,
+        "explanation": "speed() 参数 1-10 中，1 是最慢，10 是极快，0 是最快（瞬间）。"
+      },
+      {
+        "id": 99,
+        "type": "choice",
+        "title": "关闭屏幕轨迹自动刷新（开启免刷新优化），应该设置？",
+        "options": [
+          "turtle.tracer(0)",
+          "turtle.speed(0)",
+          "turtle.hideturtle()",
+          "turtle.delay(0)"
+        ],
+        "answer": 0,
+        "explanation": "turtle.tracer(0) 关掉自动刷新，配合 turtle.update() 实现极致极速渲染。"
+      },
+      {
+        "id": 100,
+        "type": "choice",
+        "title": "配合 turtle.tracer(0) 使用，手动强制刷新画布屏幕的命令是？",
+        "options": [
+          "turtle.update()",
+          "turtle.refresh()",
+          "turtle.show()",
+          "turtle.flush()"
+        ],
+        "answer": 0,
+        "explanation": "tracer(0) 停止刷新后，必须调用 update() 才能将画好的图形一次性呈现在屏幕上。"
+      },
+      {
+        "id": 101,
+        "type": "choice",
+        "title": "speed('fastest') 对应的数字速度值是？",
+        "options": [
+          "0",
+          "10",
+          "1",
+          "5"
+        ],
+        "answer": 0,
+        "explanation": "字符串 'fastest' 映射为数字速度 0。"
+      },
+      {
+        "id": 102,
+        "type": "iframe_editor",
+        "title": "【实操题 17】将速度设为最快 speed(0)，用循环快速绘制 36 个重叠的圆（每次旋转 10 度）。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nfor _ in range(36):\n    t.circle(50)\n    t.left(10)\nturtle.done()",
+        "checkpoints": [
+          "正确设置 speed(0)",
+          "利用 36 次循环绘制旋转圆花朵",
+          "绘图过程流畅迅速"
+        ],
+        "explanation": "在绘制复杂繁复图形时，设置 speed(0) 可以大幅节省等待动画的时间。"
+      }
+    ]
+  },
+  {
+    "category": "第 18 知识点：五角星与交叉多边形",
+    "questions": [
+      {
+        "id": 103,
+        "type": "choice",
+        "title": "画标准五角星时，海龟每次前进后需要转动的角度是多少度？",
+        "options": [
+          "144 度",
+          "72 度",
+          "108 度",
+          "120 度"
+        ],
+        "answer": 0,
+        "explanation": "标准五角星内角为 360/5=72 度，海龟旋转外角为 180 - 36 = 144 度。"
+      },
+      {
+        "id": 104,
+        "type": "choice",
+        "title": "绘制标准五角星需要重复执行多少次 [前进 + 转向] 操作？",
+        "options": [
+          "5 次",
+          "6 次",
+          "10 次",
+          "4 次"
+        ],
+        "answer": 0,
+        "explanation": "五角星有 5 个尖角，因此重复执行 5 次。"
+      },
+      {
+        "id": 105,
+        "type": "choice",
+        "title": "给自相交的五角星填充颜色时，turtle 默认使用的填充规则会产生什么现象？",
+        "options": [
+          "中间正五边形区域可能留白",
+          "全部填满无留白",
+          "无法填充颜色",
+          "程序报错"
+        ],
+        "answer": 0,
+        "explanation": "turtle 使用奇偶填充规则，自相交图形的中心重叠区域常常不被涂色形成空心。"
+      },
+      {
+        "id": 106,
+        "type": "choice",
+        "title": "五角星每个尖角的度数是多少度？",
+        "options": [
+          "36 度",
+          "72 度",
+          "144 度",
+          "60 度"
+        ],
+        "answer": 0,
+        "explanation": "标准五角星的每个顶角内部度数为 36 度。"
+      },
+      {
+        "id": 107,
+        "type": "choice",
+        "title": "以下哪组参数能正确画出一个五角星？",
+        "options": [
+          "循环5次: fd(100), right(144)",
+          "循环5次: fd(100), right(72)",
+          "循环5次: fd(100), right(108)",
+          "循环5次: fd(100), right(120)"
+        ],
+        "answer": 0,
+        "explanation": "旋转 144 度是绘制标准五角星的核心参数。"
+      },
+      {
+        "id": 108,
+        "type": "iframe_editor",
+        "title": "【实操题 18】编写程序，绘制一个边长为 120 像素的金色/黄色填充五角星。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.color('orange', 'yellow')\nt.begin_fill()\nfor _ in range(5):\n    t.forward(120)\n    t.right(144)\nt.end_fill()\nturtle.done()",
+        "checkpoints": [
+          "循环 5 次，每次转向 144 度",
+          "包含颜色设置与 begin/end_fill()",
+          "形成漂亮的封闭填充五角星"
+        ],
+        "explanation": "144 度转角是绘制标准五角星的经典几何常识。"
+      }
+    ]
+  },
+  {
+    "category": "第 19 知识点：螺旋线与变量递增循环",
+    "questions": [
+      {
+        "id": 109,
+        "type": "choice",
+        "title": "在 for i in range(100): 循环中，每次前进 t.forward(i)，步长会发生什么变化？",
+        "options": [
+          "步长越来越长",
+          "步长保持不变",
+          "步长越来越短",
+          "步长随机变化"
+        ],
+        "answer": 0,
+        "explanation": "循环变量 i 从 0 逐步增加到 99，前进距离逐渐增大。"
+      },
+      {
+        "id": 110,
+        "type": "choice",
+        "title": "要画出一个四边形螺旋线，每次转弯的角度应该设置多少度？",
+        "options": [
+          "90 度（或接近 90 度）",
+          "60 度",
+          "120 度",
+          "180 度"
+        ],
+        "answer": 0,
+        "explanation": "围绕 90 度旋转且边长不断增加即可形成四边方形螺旋线。"
+      },
+      {
+        "id": 111,
+        "type": "choice",
+        "title": "如果在正方形螺旋线中将旋转角度改为 91 度（比 90 度多 1 度），会产生什么视觉效果？",
+        "options": [
+          "螺旋线会产生倾斜旋转发散效果",
+          "无法绘制",
+          "变成圆弧",
+          "变成直线"
+        ],
+        "answer": 0,
+        "explanation": "微小的角度偏差会导致后续边叠加产生美丽的动态旋转倾斜。"
+      },
+      {
+        "id": 112,
+        "type": "choice",
+        "title": "以下代码中，能够实现边长不断变大效果的是哪一行？",
+        "options": [
+          "t.forward(i * 2)",
+          "t.left(90)",
+          "t.pensize(2)",
+          "t.pencolor('red')"
+        ],
+        "answer": 0,
+        "explanation": "将循环变量 i 引入 forward 参数中即可实现动态变长。"
+      },
+      {
+        "id": 113,
+        "type": "choice",
+        "title": "绘制圆形螺旋线，可以通过在循环中让 circle 的什么不断增加来实现？",
+        "options": [
+          "半径",
+          "颜色",
+          "粗细",
+          "角度"
+        ],
+        "answer": 0,
+        "explanation": "在循环中让 circle(r) 的半径 r 不断递增，或者绘制小弧度圆弧即可构成圆形螺旋。"
+      },
+      {
+        "id": 114,
+        "type": "iframe_editor",
+        "title": "【实操题 19】利用 for i in range(50): 循环，绘制一个边长每次增加 4 像素、转角 90 度的方螺旋线。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nfor i in range(50):\n    t.forward(i * 4)\n    t.left(90)\nturtle.done()",
+        "checkpoints": [
+          "循环变量与前进距离绑定",
+          "旋转角度固定为 90 度",
+          "呈现由内向外不断扩展的方形螺旋图案"
+        ],
+        "explanation": "将循环变量 i 代入移动距离是绘制各种螺旋花纹的核心原理。"
+      }
+    ]
+  },
+  {
+    "category": "第 20 知识点：窗口属性与 write() 文字输出",
+    "questions": [
+      {
+        "id": 115,
+        "type": "choice",
+        "title": "在海龟画布窗口中写字的命令是？",
+        "options": [
+          "t.write('Hello')",
+          "t.print('Hello')",
+          "t.text('Hello')",
+          "t.draw_text('Hello')"
+        ],
+        "answer": 0,
+        "explanation": "t.write(arg) 用于在当前海龟位置打印绘制文字。"
+      },
+      {
+        "id": 116,
+        "type": "choice",
+        "title": "设置海龟绘图窗口标题栏文字的方法是？",
+        "options": [
+          "turtle.title('我的画卷')",
+          "t.caption('我的画卷')",
+          "turtle.name('我的画卷')",
+          "t.write('我的画卷')"
+        ],
+        "answer": 0,
+        "explanation": "turtle.title('title') 用于修改画板窗口标题。"
+      },
+      {
+        "id": 117,
+        "type": "choice",
+        "title": "设置画布窗口弹窗宽为 600、高为 400 的方法是？",
+        "options": [
+          "turtle.setup(600, 400)",
+          "turtle.screensize(600, 400)",
+          "turtle.window(600, 400)",
+          "t.size(600, 400)"
+        ],
+        "answer": 0,
+        "explanation": "setup(width, height) 用于定义绘图窗口的物理像素尺寸。"
+      },
+      {
+        "id": 118,
+        "type": "choice",
+        "title": "在 write() 函数中，调整字体大小和字体的参数是？",
+        "options": [
+          "font=('Arial', 20, 'normal')",
+          "size=20",
+          "fontsize=20",
+          "style=20"
+        ],
+        "answer": 0,
+        "explanation": "font 参数接收一个包含 (字体名, 字号, 字体样式) 的元组。"
+      },
+      {
+        "id": 119,
+        "type": "choice",
+        "title": "write('Hello', align='center') 中 align='center' 代表什么？",
+        "options": [
+          "文字相对于海龟位置居中对齐",
+          "文字靠左对齐",
+          "文字靠右对齐",
+          "海龟移动到屏幕中央"
+        ],
+        "answer": 0,
+        "explanation": "align 参数用于设定文字的水平对齐方式（left/center/right）。"
+      },
+      {
+        "id": 120,
+        "type": "iframe_editor",
+        "title": "【实操题 20】设置窗口标题为“我的作品”，在原点 (0, 0) 位置写入蓝色、字号为 24 的文字“Python 海龟绘图”。",
+        "referenceCode": "import turtle\n\nturtle.title('我的作品')\nt = turtle.Turtle()\nt.pencolor('blue')\nt.write('Python 海龟绘图', align='center', font=('Arial', 24, 'normal'))\nt.hideturtle()\nturtle.done()",
+        "checkpoints": [
+          "正确使用 turtle.title()",
+          "正确使用 write() 及 font 参数",
+          "成功在画面中心呈现指定样式文字"
+        ],
+        "explanation": "write() 能为绘图作品添加海报标题或落款署名。"
+      }
+    ]
+  },
+  {
+    "category": "第 21 知识点：综合融会贯通大练习（一）",
+    "questions": [
+      {
+        "id": 121,
+        "type": "choice",
+        "title": "【融会贯通】要画一个带黄色填充、红线条粗细为 3 的正五边形，以下哪组代码组合是正确的？",
+        "options": [
+          "pensize(3), color('red', 'yellow'), begin_fill(), 循环5次(fd, left(72)), end_fill()",
+          "pensize(3), color('yellow', 'red'), begin_fill(), 循环5次(fd, left(60)), end_fill()",
+          "pensize(5), color('red'), 循环5次(fd, left(72))",
+          "pencolor('red'), 循环5次(fd, left(144))"
+        ],
+        "answer": 0,
+        "explanation": "正五边形旋转外角 72 度，color('red', 'yellow') 第一参数为画笔线色，第二参数为填充色。"
+      },
+      {
+        "id": 122,
+        "type": "choice",
+        "title": "【融会贯通】想要在 (-200, 0) 和 (200, 0) 两个位置各画一个圆，中间不留下连线，核心操作顺序是？",
+        "options": [
+          "goto(-200,0) -> circle -> penup -> goto(200,0) -> pendown -> circle",
+          "goto(-200,0) -> circle -> goto(200,0) -> circle",
+          "circle -> goto(-200,0) -> circle -> goto(200,0)",
+          "penup -> circle -> pendown -> circle"
+        ],
+        "answer": 0,
+        "explanation": "在两个不同的绝对坐标之间平移作图时，必须在移动前 penup()，到达后 pendown()。"
+      },
+      {
+        "id": 123,
+        "type": "choice",
+        "title": "【融会贯通】想要快速绘制出由 12 个正方形旋转组合而成的花朵图案，最外层循环应该设置多少次？（每次旋转 360/12 = 30 度）",
+        "options": [
+          "12 次",
+          "4 次",
+          "36 次",
+          "8 次"
+        ],
+        "answer": 0,
+        "explanation": "12 个图案构成的环形旋转组合，外层循环执行 12 次。"
+      },
+      {
+        "id": 124,
+        "type": "choice",
+        "title": "【融会贯通】如果把 speed(0) 与 hideturtle() 配合使用，主要目的是什么？",
+        "options": [
+          "最大化提升图形绘制速度并保持画面洁净",
+          "让海龟画不出来",
+          "改变画笔颜色",
+          "让线条变粗"
+        ],
+        "answer": 0,
+        "explanation": "隐藏图标减少重绘开销，配合最快速度能达到瞬间渲染复杂图案的目的。"
+      },
+      {
+        "id": 125,
+        "type": "choice",
+        "title": "【融会贯通】要实现一个“画笔颜色随着循环在红、黄、蓝之间轮流切换”的效果，最适合结合 Python 的哪种数据结构？",
+        "options": [
+          "列表 List，如 colors = ['red', 'yellow', 'blue']",
+          "整数",
+          "布尔值",
+          "None"
+        ],
+        "answer": 0,
+        "explanation": "将颜色存入列表，在循环中使用列表索引取值，可以轻松实现多色轮换。"
+      },
+      {
+        "id": 126,
+        "type": "choice",
+        "title": "【融会贯通】以下代码：for i in range(4): fd(100); lt(90); dot(20) 会在正方形的什么位置打上实心点？",
+        "options": [
+          "正方形的 4 个顶点上",
+          "正方形中心",
+          "正方形边线上",
+          "什么都没有"
+        ],
+        "answer": 0,
+        "explanation": "每次前进并转弯到达顶点后调用 dot(20)，会在 4 个角落顶点处各打一个圆点。"
+      },
+      {
+        "id": 127,
+        "type": "choice",
+        "title": "【融会贯通】如何利用 dot() 和 line 组合绘制出一个“棒棒糖”图形？",
+        "options": [
+          "先向上画一条直线，然后在直线末端画一个大实心点",
+          "先画圆再画正方形",
+          "只画实心点",
+          "只画直线"
+        ],
+        "answer": 0,
+        "explanation": "直线作为棒棒糖的木棍，末端的大实心圆点作为糖果部分。"
+      },
+      {
+        "id": 128,
+        "type": "choice",
+        "title": "【融会贯通】如果一个图形由 10 个内切圆组成，半径依次为 10, 20, 30... 100，应该使用什么结构书写代码最简洁？",
+        "options": [
+          "for r in range(10, 101, 10): t.circle(r)",
+          "写 10 行重复的 t.circle()",
+          "while 循环无终止条件",
+          "不用循环"
+        ],
+        "answer": 0,
+        "explanation": "使用带步长的 range(10, 101, 10) 可以自动递增半径循环画圆。"
+      },
+      {
+        "id": 129,
+        "type": "choice",
+        "title": "【融会贯通】已知 home() 会让海龟回到 (0,0) 并面向正东，如果只想让海龟回到原点但**保持当前朝向**，应该用哪组指令？",
+        "options": [
+          "t.penup(); t.goto(0, 0); t.pendown()",
+          "t.home()",
+          "t.reset()",
+          "t.clear()"
+        ],
+        "answer": 0,
+        "explanation": "goto(0,0) 只改变绝对位置，不会重置海龟的指向角度。"
+      },
+      {
+        "id": 130,
+        "type": "choice",
+        "title": "【融会贯通】要绘制一个带有背景色的太阳花：黑色背景，红色线条，黄色填充，以下代码顺序正确的是？",
+        "options": [
+          "bgcolor('black') -> color('red', 'yellow') -> begin_fill() -> 循环画花瓣 -> end_fill()",
+          "begin_fill() -> bgcolor('black') -> end_fill()",
+          "color('red') -> bgcolor('black')",
+          "循环画花瓣 -> bgcolor('black')"
+        ],
+        "answer": 0,
+        "explanation": "先配置画布与画笔属性，再开启填充，绘制闭合花瓣路径后闭合填充。"
+      }
+    ]
+  },
+  {
+    "category": "第 22 知识点：综合融会贯通大练习（二）",
+    "questions": [
+      {
+        "id": 131,
+        "type": "choice",
+        "title": "【综合融会贯通】观察代码：t.penup(); t.goto(-50, -50); t.pendown(); t.begin_fill(); 循环4次(fd(100), lt(90)); t.end_fill()。这段代码的作用是？",
+        "options": [
+          "在屏幕中央平移居中绘制一个边长为 100 的实心正方形",
+          "画一个三角形",
+          "画一个五角星",
+          "在原点画一个圆"
+        ],
+        "answer": 0,
+        "explanation": "先抬笔移动到 (-50,-50)，画出的边长 100 正方形其中心正好落在原点 (0,0) 处。"
+      },
+      {
+        "id": 132,
+        "type": "choice",
+        "title": "【综合融会贯通】利用海龟绘制一个标准的“小红旗”，核心需要用到哪些知识点组合？",
+        "options": [
+          "坐标移动(旗杆) + 矩形填充(旗面) + 144度五角星绘制",
+          "只需画 5 个圆",
+          "只需画螺旋线",
+          "只需写字 write()"
+        ],
+        "answer": 0,
+        "explanation": "红旗由旗杆直线、红色矩形底面以及金色五角星叠加绘制而成。"
+      },
+      {
+        "id": 133,
+        "type": "choice",
+        "title": "【综合融会贯通】以下哪个组合能够绘制出一个“彩色雪花”或者“放射状线条”？",
+        "options": [
+          "循环多次：设置不同画笔颜色，向前画线，原路退回，旋转一定角度",
+          "一直向前走不转弯",
+          "只在一个地方打点",
+          "不断改变画布背景色"
+        ],
+        "answer": 0,
+        "explanation": "前进画射线 -> 原路退回原点 -> 转弯改变颜色 -> 重复，是绘制放射雪花图案的标准逻辑。"
+      },
+      {
+        "id": 134,
+        "type": "choice",
+        "title": "【综合融会贯通】在绘制复杂的多层图案时，为了防止画笔在各层之间移动时留下“杂线”，最关键的操作是？",
+        "options": [
+          "在所有坐标跳转(goto)前调用 penup()，跳转后调用 pendown()",
+          "把速度调到最慢",
+          "不停调用 reset()",
+          "改变海龟造型"
+        ],
+        "answer": 0,
+        "explanation": "跳转前抬笔、到位后落笔是防止画面出现多余连线（杂线）的核心原则。"
+      },
+      {
+        "id": 135,
+        "type": "choice",
+        "title": "【综合融会贯通】如果想用海龟绘制一个“钟表盘”（12 个刻度），最巧的写法是？",
+        "options": [
+          "循环 12 次：抬笔前进到外圈 -> 落笔画短刻度线 -> 抬笔退回原点 -> 旋转 30 度",
+          "用手算 12 个点的坐标逐个 goto",
+          "画 12 个不重叠的圆",
+          "写 12 行 write 指令"
+        ],
+        "answer": 0,
+        "explanation": "利用极坐标旋转思想：从中心出发 -> 画刻度 -> 倒退回中心 -> 旋转 360/12=30 度。"
+      },
+      {
+        "id": 136,
+        "type": "iframe_editor",
+        "title": "【综合创作题 01】请融合【坐标跳转】、【颜色填充】与【循环】，在黑色背景上绘制一个“夜空金星”：背景黑，绘制一个金色填充的五角星，并在右下角标上白色文字“Night Star”。",
+        "referenceCode": "import turtle\n\nturtle.bgcolor('black')\nt = turtle.Turtle()\nt.speed(0)\n\n# 画金星\nt.color('gold', 'yellow')\nt.begin_fill()\nfor _ in range(5):\n    t.forward(100)\n    t.right(144)\nt.end_fill()\n\n# 写落款文字\nt.penup()\nt.goto(50, -100)\nt.color('white')\nt.write('Night Star', font=('Arial', 16, 'bold'))\nt.hideturtle()\n\nturtle.done()",
+        "checkpoints": [
+          "背景成功设置为黑色",
+          "五角星绘制准确并成功填充黄色/金色",
+          "使用 penup/goto 移动文字位置，文字显示清晰"
+        ],
+        "explanation": "融合了颜色、填充、几何图形与文字输出等多项核心技能。"
+      },
+      {
+        "id": 137,
+        "type": "iframe_editor",
+        "title": "【综合创作题 02】请融合【多边形拟合】与【螺旋递增】，绘制一个由 4 个不同颜色的正方形组合而成的“彩色风车图案”。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\ncolors = ['red', 'blue', 'green', 'orange']\n\nfor i in range(4):\n    t.color(colors[i])\n    t.begin_fill()\n    for _ in range(4):\n        t.forward(80)\n        t.left(90)\n    t.end_fill()\n    t.left(90)\n\nt.hideturtle()\nturtle.done()",
+        "checkpoints": [
+          "正确使用颜色列表切换 4 种颜色",
+          "循环绘制 4 个封闭填充的正方形",
+          "通过每次旋转 90 度拼成风车图形"
+        ],
+        "explanation": "将基础多边形绘制封装在颜色循环中，通过旋转形成对称艺术风车。"
+      },
+      {
+        "id": 138,
+        "type": "iframe_editor",
+        "title": "【综合创作题 03】请结合【抬笔落笔】、【实心点 dot】与【循环】，绘制一个“奥运五环”或“相扣三连环”（绘制红、黄、蓝三个横向排列的彩色实心圆环点）。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.penup()\n\ncolors = ['blue', 'yellow', 'red']\nx_positions = [-100, 0, 100]\n\nfor i in range(3):\n    t.goto(x_positions[i], 0)\n    t.dot(80, colors[i])\n\nt.hideturtle()\nturtle.done()",
+        "checkpoints": [
+          "全程保持抬笔无杂线",
+          "使用列表精确控制 3 个不同 X 坐标",
+          "在对应坐标绘制 3 个不同颜色的彩色圆点"
+        ],
+        "explanation": "利用坐标数组与循环的结合，高效绘制排布整齐的阵列图形。"
+      },
+      {
+        "id": 139,
+        "type": "iframe_editor",
+        "title": "【综合创作题 04】请利用【变量递增】与【色彩搭配】，绘制一个包含 36 条线段、颜色为橙色的“旋转蛛网/炫彩星芒”。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\nt.pencolor('orange')\n\nfor i in range(36):\n    t.forward(i * 5)\n    t.left(170)\n\nt.hideturtle()\nturtle.done()",
+        "checkpoints": [
+          "循环 36 次，步长 i * 5 递增",
+          "转角设置为 170 度钝角",
+          "呈现出精美的交织星芒图案"
+        ],
+        "explanation": "特殊的旋转钝角（如 170 度）加上递增步长能创造出令人惊艳的分形几何图案。"
+      },
+      {
+        "id": 140,
+        "type": "iframe_editor",
+        "title": "【综合创作题 05】请综合运用本课程所有知识，在画布中央绘制一棵由绿色实心圆点和咖啡色树干构成的“卡通大树”，并在上方写上“My Tree”。",
+        "referenceCode": "import turtle\n\nt = turtle.Turtle()\nt.speed(0)\n\n# 画树干\nt.pensize(20)\nt.pencolor('brown')\nt.left(90)\nt.forward(100)\n\n# 画树冠（大绿点）\nt.dot(120, 'green')\n\n# 标落款文字\nt.penup()\nt.goto(0, 150)\nt.pencolor('darkgreen')\nt.write('My Tree', align='center', font=('Arial', 20, 'bold'))\n\nt.hideturtle()\nturtle.done()",
+        "checkpoints": [
+          "正确用粗线条绘制树干",
+          "用 dot 命令绘制大树冠",
+          "正确定位并在树上方添加文本标题"
+        ],
+        "explanation": "将线条、实心点与文字综合应用，完成一副完整的卡通风景插画。"
+      }
+    ]
+  }
+]
